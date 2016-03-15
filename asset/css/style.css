@@ -1,0 +1,421 @@
+*{
+	padding:0; margin:0;
+	font-family: "Times New Roman"
+
+}
+.spasi-konten{
+	margin-top: 50px;
+}
+/*h2{
+	font-family: 'Righteous', cursive;
+}*/
+p{
+	margin-right: 200px;
+}
+
+ul{
+	margin-right: 200px;
+}
+
+/* Header */
+header{
+	background-color: rgba(128, 0, 128, 0.6);
+	position: relative;
+	z-index: 10;
+	overflow: hidden;
+	height: 60px;
+}
+header a{
+	color: #dddddd;
+	text-decoration: none;
+	padding-left: 40px;
+}
+/*header img{
+	float: left;
+	padding-left: 40px;
+	margin-top: 6px;
+}*/
+
+header h2{
+	margin-top: 10px;
+	display: inline-block;
+	font-family: 'Righteous', cursive;
+}
+footer{
+	background-color: red;
+	padding: 40px 50px;
+	margin-bottom: 40;
+	position: relative;
+	z-index: 40;
+	overflow: scroll;
+	display: inline-block;
+}
+/* Content */
+
+.awal{
+	background: url("../img/health.jpg");
+	background-size: 100% 100%;
+}
+	.awal .page-container{
+		background-color: rgba(0, 0, 128, 0.6);
+		height: inherit;
+	}
+		.awal .page-container .wallawal img{
+			margin-left: 100px;
+			margin-top: 10px;
+		}
+		.awal .page-container .wallawal p{
+			padding-left: 100px;
+			padding-top: 100px;
+			font-size: 28px;
+			color: white;
+		}
+		.awal .page-container .wallawal button{
+			margin-left: 200px;
+			margin-top: 10px;
+			background-color: rgb(240,173,78);
+    		border: none;
+    		color: black;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-size: 24px;
+    		cursor: pointer;
+            -webkit-transition-duration: 0.4s;
+    		transition-duration: 0.4s;
+    		width: 225px;
+    		height: 75px;
+		}
+		.awal .page-container .wallawal button:hover{
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+
+.one{
+	background-color: rgba(0, 128, 128, 0.6);
+	height: 100%;
+	width: 100%;
+}
+.one img{
+	margin-left: 1000px;
+	margin-top: 150px;
+}
+	.one .page-container{
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		text-align: justify;
+		color: white;
+	}
+	.one .page-container h1{
+		font-size: 48px;
+		margin-left: 200px;
+		margin-right: 400px;
+	}
+	.one .page-container p{
+		font-size: 24px;
+		margin-left: 100px;
+		margin-right: 500px;
+	}
+
+.two{
+	background-color: rgba(0, 128, 0, 0.6);
+	height: 100%;
+	width: 100%;
+}
+.two img{
+	margin-left: 1050px;
+	margin-top: 150px;
+}
+	.two .page-container{
+		position: absolute;
+		text-align: justify;
+		color: white;
+		font-size: 24px;
+	}
+	.two .page-container p{
+		margin-top: 10px;
+		margin-left: 100px;
+		margin-right: 500px;
+	}
+
+.three{
+	background-color: rgba(128, 128, 0, 0.6);
+	height: 100%;
+	width: 100%;
+}
+.three img{
+	margin-left: 1000px;
+	margin-top: 150px;
+}
+	.three .page-container{
+		position: absolute;
+		text-align: justify;
+		color: white;
+		font-size: 24px;
+	}
+	.three .page-container p{
+		margin-left: 100px;
+		margin-right: 500px;
+		margin-top: 10px;
+	}
+	.three .page-container ul{
+		margin-left: 100px;
+		margin-right: 500px;
+		margin-top: 10px;
+	}
+
+.four{
+	background-image: url("../../img/health.jpg");
+	background-size: 100% 100%;
+}
+	.four .page-container{
+		background-color: rgba(0, 0, 128, 0.6);
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		text-align: justify;
+		color: white;
+	}
+	.four .page-container p{
+		font-size: 24px;
+		margin-left: 100px;
+		margin-top: 50px;
+		margin-right: 500px;
+	}
+	.four .page-container ul{
+		font-size: 24px;
+		margin-left: 100px;
+		margin-right: 500px;
+	}
+
+.five{
+	background-color: rgba(0, 128, 128, 0.6);
+	height: 100%;
+	width: 100%;
+}
+	.five .page-container{
+		position: absolute;
+		text-align: justify;
+		color: white;
+	}
+	.five .page-container p{
+		font-size: 24px;
+		margin-left: 100px;
+		margin-top: 100px;
+		margin-right: 500px;
+	}
+	.five .page-container ul{
+		font-size: 24px;
+		margin-left: 100px;
+		margin-right: 500px;
+	}
+
+.food{
+	background-color: rgba(0, 128, 0, 0.6);
+	height: 100%;
+	width: 100%;
+}
+		.food .page-container p{
+			color: white;
+			font-size: 24px;
+			padding-top: 100px;
+			margin-left: 400px;
+		}
+		.food .page-container .carousel-inner{
+			margin-top: 50px;
+			text-align: center;
+		}
+		.food .page-container .right{
+			margin-left: 400px;
+		}
+
+.six{
+	background-image: url("../../img/health.jpg");
+	background-size: 100% 100%;
+}
+	.six .page-container{
+		background-color: rgba(0, 0, 128, 0.6);
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		text-align: justify;
+		color: white;
+	}
+	.six .page-container p{
+		font-size: 24px;
+		margin-left: 100px;
+		margin-top: 100px;
+		margin-right: 500px;
+	}
+	.six .page-container .ul{
+		font-size: 24px;
+		margin-left: 100px;
+		margin-right: 500px;
+	}
+
+.seven{
+	background-color: rgba(0, 128, 128, 0.6);
+	height: 100%;
+	width: 100%;
+}
+	.seven .page-container{
+		position: absolute;
+		text-align: justify;
+		color: white;
+	}
+	.seven .page-container p{
+		font-size: 24px;
+		margin-left: 100px;
+		margin-top: 100px;
+		margin-right: 500px;
+	}
+	.seven .page-container ul{
+		font-size: 24px;
+		margin-left: 100px;
+		margin-right: 500px;
+	}
+
+.daftar{
+	background-image: url("../../img/health.jpg");
+	background-size: 100% 100%;
+}
+	.daftar .page-container{
+		background-color: rgba(0, 0, 128, 0.6);
+		height: 100%;
+		width: 100%;
+	}
+	.daftar .page-container h1{
+		text-align: center;
+		font-size: 32px;
+		margin-top: 50px;
+	}
+
+.masuk{
+	background-image: url("../../img/health.jpg");
+	background-size: 100% 100%;
+}
+	.masuk .page-container{
+		background-color: rgba(0, 128, 0, 0.6);
+		height: 100%;
+		width: 100%;
+	}
+	.masuk .page-container h1{
+		text-align: center;
+		font-size: 32px;
+		margin-top: 100px;
+	}
+
+.tipssaran{
+	background-image: url("../../img/health.jpg");
+	background-size: 100% 100%;
+}
+	.tipssaran .page-container{
+		background-color: rgba(128, 0, 0, 0.6);
+		height: 100%;
+		width: 100%;
+		text-align: justify;
+		font-size: 24px;
+		color: white;
+		padding-top: 100px;
+	}
+	.tipssaran .page-container p{
+		text-align: center;
+	}
+
+.kalkulator{
+	background-image: url("../img/health.jpg");
+	background-size: 100% 100%
+}
+	.kalkulator .page-container{
+		background-color: rgba(0, 128, 128, 0.6);
+		height: 100%;
+		width: 100%;
+		text-align: justify;
+		color: white;
+	}
+	.kalkulator .page-container h1{
+		text-align: center;
+		margin-top: 100px;
+	}
+	.kalkulator .page-container .form-horizontal{
+		margin-top: 10px;
+	}
+
+.tentang{
+	background-image: url("../img/health.jpg");
+	background-size: 100% 100%
+}
+	.tentang .page-container{
+		background-color: rgba(128, 128, 0, 0.6);
+		height: 100%;
+		width: 100%;
+		color: white;
+	}
+	.tentang .page-container p{
+		font-size: 32px;
+		color: white;
+		margin-top: 30px;
+	}
+	.tentang .page-container .person1{
+		padding-left: 170px;
+		border-radius: 10px;
+	}
+	.tentang .page-container .person2{
+		padding-left: 200px;
+		border-radius: 10px;
+	}
+	.tentang .page-container .text p{
+		margin-top: 280px;
+		font-size: 20px;
+		text-align: center;
+		margin-left: 150px;
+		margin-right: 150px;
+	}
+
+.footer{
+	
+}
+	.footer .page-container{
+		background-color: rgba(128, 0, 0, 0.6);
+		height: 100%;
+		color: white;
+	}
+		.footer .page-container a{
+			color: #dddddd;
+		}
+			.footer .page-container .teks{
+				margin-top: 20px;
+				margin-left: 100px;
+				font-size: 24px;
+			}
+			.footer .page-container .garis{
+				margin-top: 150px;
+			}
+
+
+/*.footer{
+	background-image: url("../img/health.jpg");
+	background-size: 100% 100%;
+}
+	.page .footer .page-container{
+		background-color: rgba(128, 0, 0, 0.6);
+		height: 100%;
+		position: fixed;
+		text-align: justify;
+		color: white;
+	}
+	.page .footer .page-container .teks{
+		margin-top: 20px;
+		margin-left: 100px;
+		font-size: 24px;
+	}
+	.page .footer .page-container a{
+		color: #dddddd;
+	}
+		.page .footer .page-container .garis{
+			margin-top: 500px;
+		}
+		.page .footer .page-container .footer1{
+			margin-left: 100px;
+			max-width: 1000px;
+		}*/
