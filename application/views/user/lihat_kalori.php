@@ -59,29 +59,39 @@
 										<td class="text-center">
 											<?php 
 												if($lihat->status=='Berat Badan Sangat Kurang'){?> 
-													<span class="label label-info">
-														<?php echo $lihat->status; ?>
-													</span>
+													<h4>
+														<span class="label label-info">
+															<?php echo $lihat->status; ?>
+														</span>
+													</h4>	
 												<?php			
 												}else if($lihat->status=='Normal'){?> 
-													<span class="label label-success">
-														<?php echo $lihat->status; ?>
-													</span>
+													<h4>
+														<span class="label label-success">
+															<?php echo $lihat->status; ?>
+														</span>
+													</h4>	
 												<?php			
 												}else if($lihat->status=='Berat Badan Kurang'){?> 
-													<span class="label label-primary">
-														<?php echo $lihat->status; ?>
-													</span>
+													<h4>
+														<span class="label label-primary">
+															<?php echo $lihat->status; ?>
+														</span>
+													</h4>	
 												<?php			
 												}else if($lihat->status=='Berat Badan Berlebih'){?> 
-													<span class="label label-danger">
-														<?php echo $lihat->status; ?>
-													</span>
+													<h4>
+														<span class="label label-warning">
+															<?php echo $lihat->status; ?>
+														</span>
+													</h4>
 												<?php			
 												}else if($lihat->status=='Obesitas'){?> 
-													<span class="label label-warning">
-														<?php echo $lihat->status; ?>
-													</span>
+													<h4>
+														<span class="label label-danger">
+															<?php echo $lihat->status; ?>
+														</span>
+													</h4>	
 												<?php			
 												}
 											?>

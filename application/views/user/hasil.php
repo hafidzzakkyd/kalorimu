@@ -49,9 +49,49 @@
                     <label class="control-label"><br/>  BMI (Body Mass Index)</label>
                     <h1 class="box-title" id="BMI"><?php echo "BMI : ".$bmi ?></h1>
                     <p id="BMIkategori">Kategori Berat Badan Anda :</p> 
-                    <b style="font-size:24px;">(<?php echo $status; ?>)</b>
+                    <b style="font-size:24px;">
+                        <?php 
+                            if($status=='Berat Badan Sangat Kurang'){?> 
+                                <h1>
+                                    <span class="label label-info">
+                                        <?php echo $status; ?>
+                                    </span>
+                                </h1>   
+                            <?php           
+                            }else if($status=='Normal'){?> 
+                                <h1>
+                                    <span class="label label-success">
+                                        <?php echo $status; ?>
+                                    </span>
+                                </h1>   
+                            <?php           
+                            }else if($status=='Berat Badan Kurang'){?> 
+                                <h1>
+                                    <span class="label label-primary">
+                                        <?php echo $status; ?>
+                                    </span>
+                                </h1>   
+                            <?php           
+                            }else if($status=='Berat Badan Berlebih'){?> 
+                                <h1>
+                                    <span class="label label-warning">
+                                        <?php echo $status; ?>
+                                    </span>
+                                </h1>
+                            <?php           
+                            }else if($status=='Obesitas'){?> 
+                                <h1>
+                                    <span class="label label-danger">
+                                        <?php echo $status; ?>
+                                    </span>
+                                </h1>   
+                            <?php           
+                            }
+                        ?>
+                  </b>
                   </div>
                 </div>
+                <br>
                 <div class="row">
                   <div class="col-md-6 text-center">
                     <label class="control-label"><span>Kebutuhan</span><br/> Basal Metabolic Rate (BMR)</label>
@@ -225,8 +265,16 @@
                             </div>  
                         </div>      
                     </div>
-                    <a class="carousel-control carousel-control-olahraga left" data-slide="prev" href="#carousel2"><i class="glyphicon glyphicon-chevron-left" style="color:#ff4800;"></i></a>
-                    <a class="carousel-control carousel-control-olahraga right" data-slide="next" href="#carousel2"><i class="glyphicon glyphicon-chevron-right" style="color:#ff4800;"></i></a>
+                    <br>
+                    <ol class="carousel-indicators carousel-indicatorss carousel-option">
+                        <li data-target = "#carousel2" data-slide-to='0' class="active"></li>
+                        <li data-target = "#carousel2" data-slide-to='1'></li>
+                        <li data-target = "#carousel2" data-slide-to='2'></li>
+                        <li data-target = "#carousel2" data-slide-to='3'></li>
+                        <li data-target = "#carousel2" data-slide-to='4'></li>
+                    </ol>
+                    <a class="carousel-control carousel-control-olahraga left" data-slide="prev" href="#carousel2"></a>
+                    <a class="carousel-control carousel-control-olahraga right" data-slide="next" href="#carousel2"></a>
                     <div style="margin : 20px 0px 0px 20px;">*kalori global = 2000 Kal</div>
                 </div>
                 <!--end of carousel-->

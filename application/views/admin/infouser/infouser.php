@@ -135,7 +135,36 @@
                                         <td class="text-center"><?php echo round($lihat->kalori_user) ?></td>
                                         <td class="text-center"><?php echo round($lihat->bmr) ?></td>
                                         <td class="text-center"><?php echo $lihat->bmi ?></td>
-                                        <td class="text-center"><?php echo $lihat->status ?></td>
+                                        <td class="text-center">
+                                            <?php 
+                                                if($lihat->status=='Berat Badan Sangat Kurang'){?> 
+                                                    <span class="label label-info">
+                                                        <?php echo $lihat->status; ?>
+                                                    </span>
+                                                <?php           
+                                                }else if($lihat->status=='Normal'){?> 
+                                                    <span class="label label-success">
+                                                        <?php echo $lihat->status; ?>
+                                                    </span>
+                                                <?php           
+                                                }else if($lihat->status=='Berat Badan Kurang'){?> 
+                                                    <span class="label label-primary">
+                                                        <?php echo $lihat->status; ?>
+                                                    </span> 
+                                                <?php           
+                                                }else if($lihat->status=='Berat Badan Berlebih'){?> 
+                                                    <span class="label label-warning">
+                                                        <?php echo $lihat->status; ?>
+                                                    </span>
+                                                <?php           
+                                                }else if($lihat->status=='Obesitas'){?> 
+                                                    <span class="label label-danger">
+                                                        <?php echo $lihat->status; ?>
+                                                    </span>  
+                                                <?php           
+                                                }
+                                            ?>
+                                        </td>
                                         <td class="text-center">
                                             <a class="btn btn-danger btn-sm btn-flat" onclick="javascript:deleteConfirm('<?php echo base_url().'admin/info_user/delete_kalori_user/'.$lihat->id_kalori;?>');"><i class="glyphicon glyphicon-trash"></i> Delete</a>
                                             <?php echo anchor('admin/info_user/update_kalori_user/'.$lihat->id_kalori, '<i class="glyphicon glyphicon-pencil"></i> Edit','class="btn btn-primary btn-sm btn-flat"')?>         

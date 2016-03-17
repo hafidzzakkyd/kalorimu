@@ -101,7 +101,7 @@
   margin: 10px 10px auto;
 }
 .judul{
-  font-size: 60px
+  font-size: 70px
 }
 .spasi{
 	margin-top: 70px;
@@ -190,7 +190,7 @@
   transform: translate(-50%, -50%);
 }
 .tinggi{
-  height: 256px;
+  height: 297px;
 }
 .trans{
   background-image: url(../img/back.jpg);
@@ -216,6 +216,48 @@
     color:black;
     display:flex;
     align-items:center;
+}
+.carousel-indicatorss {
+  bottom:-10px;
+}
+
+.carousel-indicatorss li {
+  border-color:#999;
+  background-color:#ccc;
+}
+
+.carousel-inners {
+   margin-bottom:20px;
+}
+.carousel-option {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  padding-left: 0;
+  margin-left: -30%;
+  text-align: center;
+  list-style: none;
+}
+.carousel-option li{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-top: 100px;
+  margin: 1px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #FFEA88 \9;
+  background-color: #FFEA88;
+  border: 0px solid #FFEA88;
+  border-radius: 10px;
+}
+.carousel-option .active{
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  background-color: #FF8153;
 }
 
 #text-carousel {

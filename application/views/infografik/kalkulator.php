@@ -319,8 +319,16 @@
                                 </div>  
                             </div>      
                         </div>
-                        <a class="carousel-control carousel-control-olahraga left" data-slide="prev" href="#carousel2"><i class="glyphicon glyphicon-chevron-left" style="color:#ff4800;"></i></a>
-                        <a class="carousel-control carousel-control-olahraga right" data-slide="next" href="#carousel2"><i class="glyphicon glyphicon-chevron-right" style="color:#ff4800;"></i></a>
+                        <br>
+                        <ol class="carousel-indicators carousel-indicatorss carousel-option">
+                            <li data-target = "#carousel2" data-slide-to='0' class="active"></li>
+                            <li data-target = "#carousel2" data-slide-to='1'></li>
+                            <li data-target = "#carousel2" data-slide-to='2'></li>
+                            <li data-target = "#carousel2" data-slide-to='3'></li>
+                            <li data-target = "#carousel2" data-slide-to='4'></li>
+                        </ol>
+                        <a class="carousel-control carousel-control-olahraga left" data-slide="prev" href="#carousel2"></a>
+                        <a class="carousel-control carousel-control-olahraga right" data-slide="next" href="#carousel2"></a>
                         <div style="margin : 20px 0px 0px 20px;">*kalori global = 2000 Kal</div>
                     </div>
                     <!--end of carousel-->

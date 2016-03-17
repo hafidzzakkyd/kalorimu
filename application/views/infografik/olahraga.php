@@ -109,6 +109,12 @@
 	                                    </div>  
 	                                </div>
 	                            </div>
+								<br>
+	                            <br>
+	                            <ol class="carousel-indicators carousel-indicatorss carousel-option">
+	                                <li data-target = "#carousel2" data-slide-to='0' class="active"></li>
+	                                <li data-target = "#carousel2" data-slide-to='1'></li>
+	                            </ol>
 	                            <a class="carousel-control carousel-control-olahraga left" data-slide="prev" href="#carousel2"><i style="color:#ff4800;" class="glyphicon glyphicon-chevron-left"></i></a>
 	                            <a class="carousel-control carousel-control-olahraga right" data-slide="next" href="#carousel2"><i style="color:#ff4800;" class="glyphicon glyphicon-chevron-right"></i></a>
 	                        </div>

@@ -130,6 +130,8 @@
                     <div class="box-body with-border tinggi">
                         <!--kalori terakhir-->
                         <div class="text-center">
+                            <br>
+                            <br>
                             <h5>Hasil kalkulasi Kalori terakhirmu</h5>
                             <h1 class="animated bounceInDown"><?php echo round($last_kalori),' Kal'; ?></h1>
                             <br>
@@ -149,7 +151,7 @@
                     </div>
                     <div class="box-body with-border">
                         <div id="carousel2" class="carousel slide">
-                            <div class="carousel-inner">
+                            <div class="carousel-inner carousel-inners">
                                 <div class="item active" data-interval="3">
                                     <div class="row">
                                         <div class="col-md-4">
@@ -306,9 +308,18 @@
                                     </div>  
                                 </div>      
                             </div>
+                            <br>
+                            <ol class="carousel-indicators carousel-indicatorss carousel-option">
+                                <li data-target = "#carousel2" data-slide-to='0' class="active"></li>
+                                <li data-target = "#carousel2" data-slide-to='1'></li>
+                                <li data-target = "#carousel2" data-slide-to='2'></li>
+                                <li data-target = "#carousel2" data-slide-to='3'></li>
+                                <li data-target = "#carousel2" data-slide-to='4'></li>
+                            </ol>
                             <a class="carousel-control carousel-control-olahraga left" data-slide="prev" href="#carousel2"></a>
                             <a class="carousel-control carousel-control-olahraga right" data-slide="next" href="#carousel2"></a>
                         </div>
+
                         <!--end of carousel-->
                     </div>
                     <!--end of box body-->
@@ -323,6 +334,8 @@
                     <div class="box-body with-border tinggi">
                         <!--kalori terakhir-->
                         <div class="text-center">
+                            <br>
+                            <br>
                             <h5>Berat Badan yang kamu masukan terakhir kali</h5>
                             <h1 class="animated bounceInDown"><?php echo round($bb_user),' Kg'; ?></h1>
                             <br>

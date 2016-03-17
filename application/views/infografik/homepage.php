@@ -6,16 +6,15 @@
 	<section>
 		<section id="home" class="home">
 			<div class="page-container">
-				<div class="col-md-12 col-sm-12">
+				<div class="col-md-12 col-sm-12 col-xs-12">
 					<h1 class="judul animated bounceInDown"><i class="fa fa-heartbeat"></i> KaloriMu</h1>			
-					<h4 class="animated bounce">Cara mudah untuk melihat kebutuhan kalori harian anda!</h4>
+					<h3 class="animated bounce">Cara mudah untuk melihat kebutuhan kalori harian anda!</h3>
 					<br/><br/><br/>
 					<a href="#kalori" class="btn-home spasi smoothScroll">Cek Sekarang</a>
 				</div>
 			</div>
 		</section>
         <?php $this->load->view('infografik/navbar')?>
-
         <span  id="kalori" class="spasi-section"></span>
 		<section class="spasi-section content">
 			<div class="row">
