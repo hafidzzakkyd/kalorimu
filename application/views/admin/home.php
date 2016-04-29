@@ -120,7 +120,7 @@
 		  							<div class="icon">
 		  								<i class="ion ion-document"></i>
 		  							</div>
-		  								<a href="<?php echo base_url('read')?>" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+		  								<a href="<?php echo base_url('tips')?>" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
 		  						</div>
 	  						</div>
 	  						<div class="col-md-4">

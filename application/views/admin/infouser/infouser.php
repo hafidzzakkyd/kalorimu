@@ -110,15 +110,15 @@
                             <table id="myTable" class="table table-striped table-hover table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">No</th>
-                                        <th class="text-center">Tanggal</th>
-                                        <th class="text-center">BB (Kg)</th>
-                                        <th class="text-center">TB (cm)</th>
-                                        <th class="text-center">Kalori</th>
-                                        <th class="text-center">BMR</th>
-                                        <th class="text-center">BMI</th>
-                                        <th class="text-center">Status BB</th>
-                                        <th class="text-center">Action</th>
+                                        <th class="text-center" style="width:10px">No</th>
+                                        <th class="text-center" style="width:20px">Tanggal</th>
+                                        <th class="text-center" style="width:60px">BB (Kg)</th>
+                                        <th class="text-center" style="width:60px">TB (cm)</th>
+                                        <th class="text-center" style="width:40px">Kalori</th>
+                                        <th class="text-center" style="width:30px">BMR</th>
+                                        <th class="text-center" style="width:30px">BMI</th>
+                                        <th class="text-center" style="width:100px">Status BB</th>
+                                        <th class="text-center" style="width:180px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -191,22 +191,37 @@
                     </div>
                     <br>
                     <div class="box-body with-border">
-                        <canvas id="kalori_user" width="880" height="400"></canvas>
+                        <div class="chartWrapper">
+                            <div class="chartAreaWrapper">
+                                <!--jajal-->
+                                <?php 
+                                    $no = 0;
+                                    foreach ($kalori_user as $panjang) { 
+                                        $no=$no+100;
+                                        }?>                                
+                                <canvas id="kalorimu" width="<?php echo $no; ?>" height="400" ></canvas>
+                            </div>
+                            <canvas id="myKalorimuAxis" height="400" width="0"></canvas>
+                        </div>                         
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
+            <div class="col-md-offset-1 col-md-10">
                 <div class="box box-warning">
                     <div class="box-header with-border" style="background-color : #F39C12;">
                         <h4 class="box-title judul-sub"><i class="fa fa-heartbeat"></i> Chart tinggi dan berat badan <?php echo $nama?></h4>
                     </div>
                     <br>
                     <div class="box-body with-border">
-                        <canvas id="bb_user" width="840" height="400"></canvas>
-                        <div id="js-legend" class="chart-legend"></div>
+                        <div class="chartWrapper">
+                            <div class="chartAreaWrapper">
+                                <canvas id="bb_user" height="400" width="<?php echo $no; ?>"></canvas>
+                                <div id="js-legend" class="chart-legend"></div>
+                            </div>
+                            <canvas id="myChartAxisbb" height="400" width="0"></canvas>
+                        </div>  
                     </div>
                 </div>
             </div>
@@ -244,14 +259,19 @@
 
         }
 
-
-        var kalori_user = document.getElementById('kalori_user').getContext('2d');
-        new Chart(kalori_user).Line(kalori_user_data,{
-            responsive : true,
-            pointDotRadius: 5,
-            bezierCurve: true,
-            scaleShowVerticalLines : true,
-        });
+        var ctx = document.getElementById('kalorimu').getContext('2d');
+        new Chart(ctx).Line(kalori_user_data, {                    
+        onAnimationComplete: function () {
+            var sourceCanvas = this.chart.ctx.canvas;
+            var copyWidth = this.scale.xScalePaddingLeft - 5;
+                    // the +5 is so that the bottommost y axis label is not clipped off
+                    // we could factor this in using measureText if we wanted to be generic
+                    var copyHeight = this.scale.endPoint + 5;
+                    var targetCtx = document.getElementById("myKalorimuAxis").getContext("2d");
+                    targetCtx.canvas.width = copyWidth;
+                    targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth, copyHeight, 0, 0, copyWidth, copyHeight);
+                }
+            });
     </script>
     <script>
         var bb_user_data = {
@@ -295,16 +315,21 @@
                     }      
                 ]
         }
-
-
         var bb_user = document.getElementById('bb_user').getContext('2d');
-        mybb = new Chart(bb_user).Bar(bb_user_data,{
-                responsive : true,
-                pointDotRadius: 5,
-                bezierCurve: true,
-                scaleShowVerticalLines : true,
-                legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-        });
+        var mybb = new Chart(bb_user).Bar(bb_user_data,{                    
+            legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+            onAnimationComplete: function () {
+                var sourceCanvas = this.chart.bb_user.canvas;
+                var copyWidth = this.scale.xScalePaddingLeft - 5;
+                        // the +5 is so that the bottommost y axis label is not clipped off
+                        // we could factor this in using measureText if we wanted to be generic
+                        var copyHeight = this.scale.endPoint + 5;
+                        var targetCtx = document.getElementById("myChartAxisbb").getContext("2d");
+                        targetCtx.canvas.width = copyWidth;
+                        targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth, copyHeight, 0, 0, copyWidth, copyHeight);
+                    }
+                }
+        );
         document.getElementById('js-legend').innerHTML = mybb.generateLegend();
     </script>
 <?php $this->load->view('admin/template/js'); ?>

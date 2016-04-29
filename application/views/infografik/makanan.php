@@ -86,13 +86,15 @@
 									<div class="konten">
 										<br>
 										<p>Agar kalori kita dapat terjaga dengan baik, alangkah baiknya jika kita mengatur pola makan kita. Lalu seperti apa pola makan yang sehat? Berikut terdapat beberapa tips pola makan yang sehat :</p>
-										<ul>
-											<li>Aturlah jadwal makan anda secara teratur dan jangan merubah - ubah atau melewatkan jadwal makan anda.</li>
-											<li>Mengganti asupan makanan dengan nasi merah karena nasi merah memiliki sumber karbohidrat kompleks agar anda lebih kenyang dan dapat menunda lapar.</li>
-											<li>Tingkatkan frekuensi makan anda menjadi 4 kali sehari atau lebih tapi kurangi porsi makan anda agar nutrisi dapat diserap tubuh dengan sempurna.</li>
-											<li>Makanlah bila anda merasa lapar dan jangan makan saat perut belum lapar. Dan jangan paksa perut anda makan apabila anda sudah merasa kenyang.</li>
-											<li>Seimbangkan Dengan Air Putih. Air putih penting untuk kesehatan dan menjaga tubuh tetap bugar. Konsumsilah air putih minimal 8 gelas per hari.</li>
+										<br>
+										<ul class="kecils">
+											<li><p>Aturlah jadwal makan anda secara teratur dan jangan merubah - ubah atau melewatkan jadwal makan anda.</p></li>
+											<li><p>Mengganti asupan makanan dengan nasi merah karena nasi merah memiliki sumber karbohidrat kompleks agar anda lebih kenyang dan dapat menunda lapar.</p></li>
+											<li><p>Tingkatkan frekuensi makan anda menjadi 4 kali sehari atau lebih tapi kurangi porsi makan anda agar nutrisi dapat diserap tubuh dengan sempurna.</p></li>
+											<li><p>Makanlah bila anda merasa lapar dan jangan makan saat perut belum lapar. Dan jangan paksa perut anda makan apabila anda sudah merasa kenyang.</p></li>
+											<li><p>Seimbangkan Dengan Air Putih. Air putih penting untuk kesehatan dan menjaga tubuh tetap bugar. Konsumsilah air putih minimal 8 gelas per hari.</p></li>
 										</ul>
+										<br>
 										<p>Selain menjaga pola makan, kita juga harus jeli dalam memilih makanan yang rendah kalori. Lalu apa saja makanan rendah kalori itu?</p><br/>
 										<br>
 									</div>

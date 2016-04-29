@@ -14,7 +14,17 @@
  					<h4 class="box-title judul-sub"><i class="fa fa-heartbeat"></i> Chart Kalorimu</h4>
  				</div>
  				<div class="box-body with-border">
- 					<center><canvas id="kalori_user" width="1050" height="400"></canvas></center>
+                    <div class="chartWrapper">
+                        <div class="chartAreaWrapper">
+                            <?php 
+                                $no=0;
+                                foreach ($chart_user as $panjang) {
+                                     $no=$no+100;
+                                } ?>
+                            <canvas id="kalorimu" height="400" width="<?php echo $no; ?>"></canvas>
+                        </div>
+                        <canvas id="myKalorimuAxis" height="400" width="0"></canvas>
+                    </div> 
  				</div>
  			</div>
  		</div>
@@ -26,8 +36,13 @@
                     <h4 class="box-title judul-sub"><i class="fa fa-bar-chart"></i> Chart Tinggi & Berat Badanmu</h4>
                 </div>
                 <div class="box-body with-border">
-                    <center><canvas id="bb_user" width="830" height="400"></canvas></center>
-                    <div id="js-legend" class="chart-legend"></div>
+                    <div class="chartWrapper">
+                        <div class="chartAreaWrapper">
+                            <canvas id="bb_user" height="400" width="<?php echo $no; ?>"></canvas>
+                            <div id="js-legend" class="chart-legend"></div>
+                        </div>
+                        <canvas id="myChartAxisbb" height="400" width="0"></canvas>
+                    </div>
                 </div>
 
             </div>
@@ -61,13 +76,19 @@
 		]
 
 	}
-    var kalori_user = document.getElementById('kalori_user').getContext('2d');
-    new Chart(kalori_user).Line(kalori_user_data,{
-        responsive : true,
-        pointDotRadius: 5,
-        bezierCurve: true,
-        scaleShowVerticalLines : true,
-    });
+    var ctx = document.getElementById('kalorimu').getContext('2d');
+    new Chart(ctx).Line(kalori_user_data, {                    
+    onAnimationComplete: function () {
+        var sourceCanvas = this.chart.ctx.canvas;
+        var copyWidth = this.scale.xScalePaddingLeft - 5;
+                // the +5 is so that the bottommost y axis label is not clipped off
+                // we could factor this in using measureText if we wanted to be generic
+                var copyHeight = this.scale.endPoint + 5;
+                var targetCtx = document.getElementById("myKalorimuAxis").getContext("2d");
+                targetCtx.canvas.width = copyWidth;
+                targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth, copyHeight, 0, 0, copyWidth, copyHeight);
+            }
+        });
 </script>
 <script>
     var bb_user_data = {
@@ -115,13 +136,20 @@
     }
 
     var bb_user = document.getElementById('bb_user').getContext('2d');
-    var mybb = new Chart(bb_user).Bar(bb_user_data,{
-        responsive : true,
-        pointDotRadius: 5,
-        bezierCurve: true,
-        scaleShowVerticalLines : true,
+    var mybb = new Chart(bb_user).Bar(bb_user_data,{                    
         legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-    });
+        onAnimationComplete: function () {
+            var sourceCanvas = this.chart.bb_user.canvas;
+            var copyWidth = this.scale.xScalePaddingLeft - 5;
+                    // the +5 is so that the bottommost y axis label is not clipped off
+                    // we could factor this in using measureText if we wanted to be generic
+                    var copyHeight = this.scale.endPoint + 5;
+                    var targetCtx = document.getElementById("myChartAxisbb").getContext("2d");
+                    targetCtx.canvas.width = copyWidth;
+                    targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth, copyHeight, 0, 0, copyWidth, copyHeight);
+                }
+            }
+    );
     document.getElementById('js-legend').innerHTML = mybb.generateLegend();
 </script>
 

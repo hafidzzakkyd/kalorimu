@@ -31,14 +31,14 @@
  							<table id="myTable" class="table table-striped table-hover table-bordered" cellspacing="0" width="100%">
  								<thead>
  									<tr>
- 										<th class="text-center">No</th>
- 										<th class="text-center">Tanggal</th>
- 										<th class="text-center">BB (Kg)</th>
- 										<th class="text-center">TB (Cm)</th>
- 										<th class="text-center">Kalori</th>
- 										<th class="text-center">BMR</th>
- 										<th class="text-center">BMI</th>
- 										<th class="text-center">Status BB</th>
+ 										<th class="text-center" style="width:30px;">No</th>
+ 										<th class="text-center" style="width:120px;">Tanggal</th>
+ 										<th class="text-center" style="width:60px;">BB (Kg)</th>
+ 										<th class="text-center" style="width:60px;">TB (Cm)</th>
+ 										<th class="text-center" style="width:30px;">Kalori</th>
+ 										<th class="text-center" style="width:30px;">BMR</th>
+ 										<th class="text-center" style="width:30px;">BMI</th>
+ 										<th class="text-center" style="width:130px;">Status BB</th>
  										<th class="text-center" style="width:130px;">Action</th>
  									</tr>
  								</thead>

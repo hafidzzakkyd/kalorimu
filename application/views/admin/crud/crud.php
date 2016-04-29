@@ -25,6 +25,7 @@
 				<!--box body-->
 				<div class="box-body with-border">
 					<div class="table-responsive">
+						<br>
 					    <!--btn add user-->
 					    <a class="btn btn-success btn-flat" href="<?php echo base_url('admin/crud/create')?>"><i class="glyphicon glyphicon-plus"></i> Add User</a>
 						<!--end of btn add user-->
@@ -86,7 +87,7 @@
 		  									}elseif(date('m',strtotime($row->create_at))==12){
 		  										echo "Desember";
 		  									}
-		  									echo date('-y',strtotime($row->create_at));
+		  									echo date('-Y',strtotime($row->create_at));
 										?>
 									</td>
 									<td class="text-center">

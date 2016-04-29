@@ -81,12 +81,13 @@
 									<br>
 									<p>Apabila sudah mendapatkan nilai BMR, selanjutnya akan kita kalikan dengan nilai level aktivitas, adapun nilai aktivitas :</p>
 									<ul>
-										<li>Tidak aktif : 1,2 -> Mereka yang tidak berolahraga sama sekali dalam seminggu</li>
-										<li>Aktivitas ringan : 1,375 -> Mereka yang berolahraga 1 - 3 kali dalam seminggu</li>
-										<li>Aktivitas sedang : 1,55 -> Mereka yang berolahraga 4 - 5 kali dalam seminggu</li>
-										<li>Aktivitas berat : 1,725 -> Mereka yang berolahraga 6 - 7 kali dalam seminggu</li>
-										<li>Aktivitas sangat berat : 1,9 -> Mereka yang berolahraga 2 kali / lebih dalam sehari</li>
-									</ul>
+										<pre><b>Tidak aktif</b> 	    : 1,2 -> Mereka yang tidak berolahraga sama sekali dalam seminggu</pre>
+										<pre><b>Aktivitas ringan</b> 	    : 1,375 -> Mereka yang berolahraga 1 - 3 kali dalam seminggu</pre>
+										<pre><b>Aktivitas sedang</b> 	    : 1,55 -> Mereka yang berolahraga 4 - 5 kali dalam seminggu</pre>
+										<pre><b>Aktivitas berat</b> 	    : 1,725 -> Mereka yang berolahraga 6 - 7 kali dalam seminggu</pre>
+										<pre><b>Aktivitas sangat berat</b>  : 1,9 -> Mereka yang berolahraga 2 kali / lebih dalam sehari</pre>
+									</ul>	
+									<p>Level aktifitas yang kamu lakukan sangat mempengaruhi kebutuhan kalori dalam tubuhmu</p>
 								</div>
 								<br>
 							</div>

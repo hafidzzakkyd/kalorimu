@@ -96,6 +96,15 @@
 }
 .konten{
   font-size: 18px;
+
+}
+.tengah{
+    margin-top: 10px;
+    text-align: center;
+    vertical-align: center;
+}
+.kecil{
+  font-size: 16px;
 }
 .margin{
   margin: 10px 10px auto;
@@ -215,7 +224,6 @@
 .carousel-content {
     color:black;
     display:flex;
-    align-items:center;
 }
 .carousel-indicatorss {
   bottom:-10px;
@@ -260,14 +268,14 @@
   background-color: #FF8153;
 }
 
-#text-carousel {
+/*#text-carousel {
   font-size: 20px;
   vertical-align: center;
   width: 100%;
   height: 200px;
   text-align: center;
   padding: 40px 20px 0px 0px;
-}
+}*/
 /*end of carousel*/
 .item {
     display: none;
@@ -335,7 +343,7 @@
     background-color: #FFFFFF;
 }
 .home{
-  background: url('../img/health.jpg') 50% 0 repeat-y fixed;
+  background: url('../img/health.jpg') 90% 0 repeat-y fixed;
   color: #ffffff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -422,4 +430,29 @@
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
   background-color: transparent;
+}
+/*chart*/
+
+        .chartWrapper {
+            position: relative;
+        }
+
+        .chartWrapper > canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events:none;
+        }
+
+        .chartAreaWrapper {
+            width: 98%;
+            overflow-x: scroll;
+        }
+
+#main{
+    display:block;
+    width:100%;
+    padding:50px 10%;
+    height:300px;
+    background-color: grey;
 }

@@ -116,7 +116,17 @@
                         <h4 class="box-title judul-sub"><i class="fa fa-area-chart"></i> Chart Kalorimu</h4>
                     </div>
                     <div class="box-body with-border">
-                        <center><canvas id="kalori_user" width="830" height="400"></canvas></center>
+                        <div class="chartWrapper">
+                            <div class="chartAreaWrapper">
+                                <?php 
+                                    $no=0;
+                                    foreach ($chart_user as $panjang) {
+                                         $no=$no+100;
+                                    } ?>
+                                <canvas id="kalorimu" height="400" width="<?php echo $no; ?>"></canvas>
+                            </div>
+                            <canvas id="myKalorimuAxis" height="400" width="0"></canvas>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -354,8 +364,14 @@
                         <h4 class="box-title judul-sub"><i class="fa fa-bar-chart"></i> Chart Tinggi & Berat Badanmu</h4>
                     </div>
                     <div class="box-body with-border">
-                        <center><canvas id="bb_user" width="830" height="400"></canvas></center>
-                        <div id="js-legend" class="chart-legend"></div>
+                        <div class="chartWrapper">
+                            <div class="chartAreaWrapper">
+                                <canvas id="bb_user" height="400" width="<?php echo $no; ?>"></canvas>
+
+                                <div id="js-legend" class="chart-legend"></div>
+                            </div>
+                            <canvas id="myChartAxisbb" height="400" width="0"></canvas>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -369,21 +385,24 @@
                     <div class="box-body with-border">
                         <div id="text-carousel" class="carousel slide" data-ride="carousel">
                             <!-- Wrapper for slides -->
-                            <div class="row">
-                                <div class="col-xs-offset-3 col-xs-6">
+                            <div class="row tengah">
+                                <div class="col-xs-offset-2 col-sm-offset-3 col-lg-offset-3 col-md-offset-3 col-xs-8 col-sm-6 col-md-6 col-lg-6">
                                     <div class="carousel-inner">
                                         <div class="item active">
                                             <div class="carousel-content">
                                                 <div class="animated bounce">
-                                                    <p><b>"Aturlah jadwal makan anda secara teratur dan jangan merubah-ubah atau melewatkan jadwal makan anda."</b></p>
+                                                    <h4><p><b>"Aturlah jadwal makan anda secara teratur dan jangan merubah-ubah atau melewatkan jadwal makan anda."</b></p></h4>
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php foreach ($tips_kalori as $key) {?>
+                                        <?php 
+                                            $no=0;
+                                            foreach ($tips_kalori as $key) {
+                                                $no++;?>
                                         <div class="item">
                                             <div class="carousel-content">
                                                 <div class="animated bounceInRight">
-                                                    <p><b> <?php echo '"'.$key->info.'"'; ?></b></p>
+                                                    <h4><p><b> <?php echo '"'.$key->info.'"'; ?></b></p></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -392,8 +411,20 @@
                                 </div>
                             </div>
                             <!-- Controls --> 
-                            <a class="left carousel-control tinggi-panah" href="#text-carousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                            <a class="right carousel-control tinggi-panah" href="#text-carousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                            <br>
+                            <br>
+                            <br>
+                            <ol class="carousel-indicators carousel-indicatorss carousel-option">
+                                <li data-target = "#text-carousel" data-slide-to='0' class="active"></li>
+                                <?php 
+                                    $no=0;
+                                    foreach ($tips_kalori as $nomer) {
+                                        $no++;?>
+                                <li data-target = "#text-carousel" data-slide-to='<?php echo $no; ?>'></li>
+                                <?php } ?>
+                            </ol>
+                            <a class="left carousel-control" href="#text-carousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                            <a class="right carousel-control" href="#text-carousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
                         </div>
                     </div>
                 </div>
@@ -401,7 +432,7 @@
         </div>
         </section>
     </body>
-</html>
+</html>    
         <script>
             var renovasirumah = [
                 {
@@ -655,6 +686,48 @@
             });
         </script>
         <script>
+             var ctx = document.getElementById("kalorimu").getContext("2d");
+
+             var data = {
+                labels : [<?php  
+                        foreach ($chart_user as $k) {
+                            echo '"'.date("d/m/Y",strtotime($waktu)).'",';
+                        }
+                ?>],
+                datasets : [
+                    {
+                        label : "KaloriMu",
+                        fillColor: "rgba(151,187,205,0.2)",
+                        strokeColor: "rgba(151,187,205,1)",
+                        pointColor: "rgba(151,187,205,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(151,187,205,1)",
+                        data : [
+                            <?php 
+                                $no=0;
+                                foreach ($chart_user as $key) {
+                                    echo round($key->kalori_user).',';
+                                $no++;
+                            } ?>]
+                    },
+                ]
+             };
+
+             new Chart(ctx).Line(data, {                    
+                onAnimationComplete: function () {
+                    var sourceCanvas = this.chart.ctx.canvas;
+                    var copyWidth = this.scale.xScalePaddingLeft - 5;
+                            // the +5 is so that the bottommost y axis label is not clipped off
+                            // we could factor this in using measureText if we wanted to be generic
+                            var copyHeight = this.scale.endPoint + 5;
+                            var targetCtx = document.getElementById("myKalorimuAxis").getContext("2d");
+                            targetCtx.canvas.width = copyWidth;
+                            targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth, copyHeight, 0, 0, copyWidth, copyHeight);
+                        }
+                    });
+        </script>
+        <script>
             var bb_user_data = {
                 labels : [<?php  
                         foreach ($chart_user as $k) {
@@ -697,13 +770,20 @@
                 ]
             }
             var bb_user = document.getElementById('bb_user').getContext('2d');
-            var mybb = new Chart(bb_user).Bar(bb_user_data,{
-                responsive : true,
-                pointDotRadius: 5,
-                bezierCurve: true,
-                scaleShowVerticalLines : true,
+            var mybb = new Chart(bb_user).Bar(bb_user_data,{                    
                 legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-            });
+                onAnimationComplete: function () {
+                    var sourceCanvas = this.chart.bb_user.canvas;
+                    var copyWidth = this.scale.xScalePaddingLeft - 5;
+                            // the +5 is so that the bottommost y axis label is not clipped off
+                            // we could factor this in using measureText if we wanted to be generic
+                            var copyHeight = this.scale.endPoint + 5;
+                            var targetCtx = document.getElementById("myChartAxisbb").getContext("2d");
+                            targetCtx.canvas.width = copyWidth;
+                            targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth, copyHeight, 0, 0, copyWidth, copyHeight);
+                        }
+                    }
+            );
             document.getElementById('js-legend').innerHTML = mybb.generateLegend();
         </script>
 <!-- jQuery 2.1.3 -->

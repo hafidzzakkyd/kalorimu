@@ -133,13 +133,13 @@ class create_xls extends CI_Controller {
 		$this->excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(20);
 		$this->excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
 		//merge cell A1 sampe D1
-		$this->excel->getActiveSheet()->mergeCells('A1:G1');
+		$this->excel->getActiveSheet()->mergeCells('A1:J1');
 		//mengatur posisi merge ditengah
 		$this->excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 		$this->excel->getActiveSheet()->getStyle('A1')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
 
 		//pendefinisian data
-		$heading = array('No','Tanggal','Berat Badan(Kg)','Tinggi Badan(Cm)','Kalori','Update At','Create_at');
+		$heading = array('No','Tanggal','Berat Badan(Kg)','Tinggi Badan(Cm)','Kalori','BMR','BMI','Status','Update At','Create_at');
 
 		//loop heading
 		$rowNumberH = 2;
@@ -160,9 +160,9 @@ class create_xls extends CI_Controller {
 		$no=1;
 		$row=3;
 		foreach ($data_user as $test) {
-			$this->excel->getActiveSheet()->setCellValue('A'.$row,$no);
+            $this->excel->getActiveSheet()->setCellValue('A'.$row,$no);
 			$this->excel->getActiveSheet()->getStyle('A'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-			$this->excel->getActiveSheet()->setCellValue('B'.$row,$test->waktu);
+			$this->excel->getActiveSheet()->setCellValue('B'.$row,date("d/m/Y h:i a",strtotime($test->waktu)));
 			$this->excel->getActiveSheet()->getStyle('B'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
             $this->excel->getActiveSheet()->setCellValue('C'.$row,$test->berat_badan);
             $this->excel->getActiveSheet()->getStyle('C'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
@@ -170,10 +170,16 @@ class create_xls extends CI_Controller {
             $this->excel->getActiveSheet()->getStyle('D'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
             $this->excel->getActiveSheet()->setCellValue('E'.$row,$test->kalori_user);
             $this->excel->getActiveSheet()->getStyle('E'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-            $this->excel->getActiveSheet()->setCellValue('F'.$row,$test->kal_usr_update);
+            $this->excel->getActiveSheet()->setCellValue('F'.$row,$test->bmr);
             $this->excel->getActiveSheet()->getStyle('F'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-            $this->excel->getActiveSheet()->setCellValue('G'.$row,$test->kal_usr_create);
+            $this->excel->getActiveSheet()->setCellValue('G'.$row,$test->bmi);
             $this->excel->getActiveSheet()->getStyle('G'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+            $this->excel->getActiveSheet()->setCellValue('H'.$row,$test->status);
+            $this->excel->getActiveSheet()->getStyle('H'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+            $this->excel->getActiveSheet()->setCellValue('I'.$row,date("d/m/Y h:i a",strtotime($test->kal_usr_update)));
+            $this->excel->getActiveSheet()->getStyle('I'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+            $this->excel->getActiveSheet()->setCellValue('J'.$row,date("d/m/Y h:i a",strtotime($test->kal_usr_create)));
+            $this->excel->getActiveSheet()->getStyle('J'.$row)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
             $row++;
             $no++;
 		}
@@ -187,6 +193,9 @@ class create_xls extends CI_Controller {
         $this->excel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
         $this->excel->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
         $this->excel->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+        $this->excel->getActiveSheet()->getColumnDimension('H')->setAutoSize(true);
+        $this->excel->getActiveSheet()->getColumnDimension('I')->setAutoSize(true);
+        $this->excel->getActiveSheet()->getColumnDimension('J')->setAutoSize(true);
 
         //MENGATUR POSISI TENGAH
         $this->excel->getActiveSheet()->getStyle('A2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
@@ -196,6 +205,9 @@ class create_xls extends CI_Controller {
         $this->excel->getActiveSheet()->getStyle('E2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         $this->excel->getActiveSheet()->getStyle('F2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         $this->excel->getActiveSheet()->getStyle('G2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+        $this->excel->getActiveSheet()->getStyle('H2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+        $this->excel->getActiveSheet()->getStyle('I2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+        $this->excel->getActiveSheet()->getStyle('J2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
         //border cell
         $jumlah_data=$data->num_rows();
@@ -207,7 +219,7 @@ class create_xls extends CI_Controller {
 	            )
 	        )
 	    );
-	    $this->excel->getActiveSheet()->getStyle('A2:G'.$maxrow)->applyFromArray($styleArray);
+	    $this->excel->getActiveSheet()->getStyle('A2:J'.$maxrow)->applyFromArray($styleArray);
 
 		$filename='Tabel_Kalori_User '. date('d-m-Y H-i-s').'.xls'; //save our workbook as this file name
 		header('Content-Type: application/vnd.ms-excel'); //mime type
@@ -256,6 +268,7 @@ class create_xls extends CI_Controller {
 			$this->excel->getActiveSheet()->getStyle($colH.$rowNumberH)->getFont()->setBold(true);
 			$this->excel->getActiveSheet()->getStyle($colH.$rowNumberH)->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
 			$this->excel->getActiveSheet()->getStyle($colH.$rowNumberH)->getFill()->getStartColor()->setARGB('FF2E978C');
+			$this->excel->getActiveSheet()->getStyle($colH.$rowNumberH)->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);
 			$colH++;
 		}
 
